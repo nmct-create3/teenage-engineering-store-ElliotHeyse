@@ -1,3 +1,7 @@
+/* imports */
+@import url('https://use.typekit.net/hzj5lbj.css');
+
+/* variables */
 :root {
   --orange: #ff9637;
   --darkgreen: #005037;
@@ -34,13 +38,17 @@
   --font-size-xl: 2.25rem;
   --font-size-xxl: 3.375rem;
 
-  --space-xxs: .25rem;
-  --space-xs: .5rem;
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
   --space-s: 1rem;
   --space-m: 1.5rem;
   --space-l: 2rem;
   --space-xl: 3rem;
   --space-xxl: 4.5rem;
+
+  @media (prefers-color-scheme: dark) {
+    --neutral-100: hotpink;
+  }
 }
 
 /*
@@ -69,7 +77,14 @@
   Set the global text color and background color with the custom properties
 */
 
-html {}
+html {
+  font-size: calc(var(--font-size-base) / 16 * 18);
+  font-family: 'neue-haas-unica', sans-serif;
+  font-weight: 300;
+  line-height: calc(18 / 16 * 1.5rem);
+  color: var(--page-text-color);
+  background-color: var(--page-background-color);
+}
 
 ::selection {
   background-color: var(--lilac);
@@ -98,23 +113,34 @@ ul:not([class]) {
 h1,
 h2,
 h3,
-h4 {}
+h4 {
+  font-weight: 300;
+}
 
 /* set the h2 to a font-size xl and the correct line-height */
 
-h2 {}
+h2 {
+  font-size: var(--font-size-xl);
+  line-height: calc(var(--font-size-xl) * 1.5);
+}
 
 /* Links */
 
 /* all links should have a color of --blue, provide a hover effect */
 
-a {}
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
 
-a:hover {}
+a:hover {
+  text-decoration: underline;
+}
 
 /* Other elements */
 
-hr {}
+hr {
+}
 
 /*
   Reusable objects
@@ -122,27 +148,40 @@ hr {}
 
 /* Containers to add a max width and center content */
 
-.container {}
+.container {
+  max-width: 1440px;
+  margin: auto;
+}
 
 /* Rows to add whitespace around child elements */
 
-.row {}
+.row {
+  padding: var(--space-m) 0;
+}
 
-.row--xl {}
+.row--xl {
+}
 
-.row--xxl {}
+.row--xxl {
+}
 
 /* lists */
 
-.list-reset {}
+.list-reset {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
 /* Everything inside content should have some space at the top when it's adjacent to another element */
 
-.content>*+* {}
+.content > * + * {
+}
 
 /* Images */
 
-.image-landscape {}
+.image-landscape {
+}
 
 /*
   Component Specific styles
